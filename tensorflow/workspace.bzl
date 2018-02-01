@@ -295,16 +295,16 @@ def tf_workspace(path_prefix="", tf_repo_name=""):
   tf_http_archive(
       name = "protobuf_archive",
       urls = [
-          "https://mirror.bazel.build/github.com/google/protobuf/archive/b04e5cba356212e4e8c66c61bbe0c3a20537c5b9.tar.gz",
-          "https://github.com/google/protobuf/archive/b04e5cba356212e4e8c66c61bbe0c3a20537c5b9.tar.gz",
+          "https://mirror.bazel.build/github.com/google/protobuf/archive/v3.3.2.tar.gz",
+          "https://github.com/google/protobuf/archive/v3.3.2.tar.gz",
       ],
-      sha256 = "e178a25c52efcb6b05988bdbeace4c0d3f2d2fe5b46696d1d9898875c3803d6a",
-      strip_prefix = "protobuf-b04e5cba356212e4e8c66c61bbe0c3a20537c5b9",
+      sha256 = "e53fd5d514169dc80fb38673dc63f4048cebd3e524e49c1663428f89330bda56",
+      strip_prefix = "protobuf-3.3.2",
       # TODO: remove patching when tensorflow stops linking same protos into
       #       multiple shared libraries loaded in runtime by python.
       #       This patch fixes a runtime crash when tensorflow is compiled
       #       with clang -O2 on Linux (see https://github.com/tensorflow/tensorflow/issues/8394)
-      patch_file = str(Label("//third_party/protobuf:add_noinlines.patch")),
+      patch_file = str(Label("//third_party/protobuf:fix_frozen.patch")),
   )
 
   # We need to import the protobuf library under the names com_google_protobuf
@@ -313,21 +313,21 @@ def tf_workspace(path_prefix="", tf_repo_name=""):
   tf_http_archive(
       name = "com_google_protobuf",
       urls = [
-          "https://mirror.bazel.build/github.com/google/protobuf/archive/b04e5cba356212e4e8c66c61bbe0c3a20537c5b9.tar.gz",
-          "https://github.com/google/protobuf/archive/b04e5cba356212e4e8c66c61bbe0c3a20537c5b9.tar.gz",
+          "https://mirror.bazel.build/github.com/google/protobuf/archive/3.3.2.tar.gz",
+          "https://github.com/google/protobuf/archive/3.3.2.tar.gz",
       ],
-      sha256 = "e178a25c52efcb6b05988bdbeace4c0d3f2d2fe5b46696d1d9898875c3803d6a",
-      strip_prefix = "protobuf-b04e5cba356212e4e8c66c61bbe0c3a20537c5b9",
+      sha256 = "e53fd5d514169dc80fb38673dc63f4048cebd3e524e49c1663428f89330bda56",
+      strip_prefix = "protobuf-3.3.2",
   )
 
   tf_http_archive(
       name = "com_google_protobuf_cc",
       urls = [
-          "https://mirror.bazel.build/github.com/google/protobuf/archive/b04e5cba356212e4e8c66c61bbe0c3a20537c5b9.tar.gz",
-          "https://github.com/google/protobuf/archive/b04e5cba356212e4e8c66c61bbe0c3a20537c5b9.tar.gz",
+          "https://mirror.bazel.build/github.com/google/protobuf/archive/3.3.2.tar.gz",
+          "https://github.com/google/protobuf/archive/3.3.2.tar.gz",
       ],
-      sha256 = "e178a25c52efcb6b05988bdbeace4c0d3f2d2fe5b46696d1d9898875c3803d6a",
-      strip_prefix = "protobuf-b04e5cba356212e4e8c66c61bbe0c3a20537c5b9",
+      sha256 = "e53fd5d514169dc80fb38673dc63f4048cebd3e524e49c1663428f89330bda56",
+      strip_prefix = "protobuf-3.3.2",
   )
 
   tf_http_archive(

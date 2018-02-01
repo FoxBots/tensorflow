@@ -1,0 +1,24 @@
+diff -u -r a/protobuf.bzl b/protobuf.bzl
+--- a/protobuf.bzl	2018-02-01 13:08:18.292290893 -0600
++++ b/protobuf.bzl	2018-02-01 13:08:11.020377681 -0600
+@@ -244,9 +245,9 @@
+   )
+
+   if default_runtime and not default_runtime in cc_libs:
+-    cc_libs += [default_runtime]
++    cc_libs = cc_libs + [default_runtime]
+   if use_grpc_plugin:
+-    cc_libs += ["//external:grpc_lib"]
++    cc_libs = cc_libs + ["//external:grpc_lib"]
+
+   native.cc_library(
+       name=name,
+@@ -370,7 +371,7 @@
+   )
+
+   if default_runtime and not default_runtime in py_libs + deps:
+-    py_libs += [default_runtime]
++    py_libs = py_libs + [default_runtime]
+
+   native.py_library(
+       name=name,
