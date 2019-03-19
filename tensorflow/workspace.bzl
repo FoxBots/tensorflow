@@ -7,7 +7,6 @@ load("//third_party:nccl/nccl_configure.bzl", "nccl_configure")
 load("//third_party/mkl:build_defs.bzl", "mkl_repository")
 load("//third_party/git:git_configure.bzl", "git_configure")
 load("//third_party/py:python_configure.bzl", "python_configure")
-
 load("//third_party/sycl:sycl_configure.bzl", "sycl_configure")
 load("//third_party/systemlibs:syslibs_configure.bzl", "syslibs_configure")
 load("//third_party/toolchains/clang6:repo.bzl", "clang6_configure")
@@ -349,11 +348,11 @@ def tf_workspace(path_prefix = "", tf_repo_name = ""):
     )
 
     PROTOBUF_URLS = [
-        "https://mirror.bazel.build/github.com/protocolbuffers/protobuf/archive/v3.6.1.2.tar.gz",
-        "https://github.com/protocolbuffers/protobuf/archive/v3.6.1.2.tar.gz",
+        "https://mirror.bazel.build/github.com/protocolbuffers/protobuf/archive/v3.7.0.tar.gz",
+        "https://github.com/protocolbuffers/protobuf/archive/v3.7.0.tar.gz",
     ]
-    PROTOBUF_SHA256 = "2244b0308846bb22b4ff0bcc675e99290ff9f1115553ae9671eba1030af31bc0"
-    PROTOBUF_STRIP_PREFIX = "protobuf-3.6.1.2"
+    PROTOBUF_SHA256 = "a19dcfe9d156ae45d209b15e0faed5c7b5f109b6117bfc1974b6a7b98a850320"
+    PROTOBUF_STRIP_PREFIX = "protobuf-3.7.0"
 
     tf_http_archive(
         name = "protobuf_archive",

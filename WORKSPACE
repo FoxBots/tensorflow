@@ -3,6 +3,13 @@ workspace(name = "org_tensorflow")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
+    name = "bazel_skylib",
+    sha256 = "bbccf674aa441c266df9894182d80de104cabd19be98be002f6d478aaa31574d",
+    strip_prefix = "bazel-skylib-2169ae1c374aab4a09aa90e65efe1a3aad4e279b",
+    urls = ["https://github.com/bazelbuild/bazel-skylib/archive/2169ae1c374aab4a09aa90e65efe1a3aad4e279b.tar.gz"],
+)
+
+http_archive(
     name = "io_bazel_rules_closure",
     sha256 = "a38539c5b5c358548e75b44141b4ab637bba7c4dc02b46b1f62a96d6433f56ae",
     strip_prefix = "rules_closure-dbb96841cc0a5fb2664c37822803b06dab20c7d1",
@@ -16,8 +23,10 @@ load("@io_bazel_rules_closure//closure:defs.bzl", "closure_repositories")
 
 closure_repositories()
 
-load("//third_party/toolchains/preconfig/generate:archives.bzl",
-     "bazel_toolchains_archive")
+load(
+    "//third_party/toolchains/preconfig/generate:archives.bzl",
+    "bazel_toolchains_archive",
+)
 
 bazel_toolchains_archive()
 
@@ -35,8 +44,10 @@ load(
 
 container_repositories()
 
-load("//third_party/toolchains/preconfig/generate:workspace.bzl",
-     "remote_config_workspace")
+load(
+    "//third_party/toolchains/preconfig/generate:workspace.bzl",
+    "remote_config_workspace",
+)
 
 remote_config_workspace()
 
@@ -44,13 +55,16 @@ remote_config_workspace()
 # files, in case the parsing of those build files depends on the bazel
 # version we require here.
 load("//tensorflow:version_check.bzl", "check_bazel_version_at_least")
+
 check_bazel_version_at_least("0.18.0")
 
 load("//tensorflow:workspace.bzl", "tf_workspace")
-
 load("//third_party/android:android_configure.bzl", "android_configure")
-android_configure(name="local_config_android")
+
+android_configure(name = "local_config_android")
+
 load("@local_config_android//:android.bzl", "android_workspace")
+
 android_workspace()
 
 # Please add all new TensorFlow dependencies in workspace.bzl.
@@ -105,4 +119,3 @@ http_archive(
         "http://download.tensorflow.org/models/speech_commands_v0.01.zip",
     ],
 )
-
