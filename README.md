@@ -4,6 +4,20 @@
 
 -----------------
 
+| **`Fox edits`** |
+
+To build:
+
+1) Install default tensor stack (provided by lambda labs)
+1) `sudo ./make_tensor_stack_symlinks.sh`
+1) ./configure
+1) Answer [Y] to use_cuda
+1) Answer [2] to nccl version
+1) Answer [7.5] to cuda compute capability
+
+
+-----------------
+
 
 | **`Documentation`** |
 |-----------------|
