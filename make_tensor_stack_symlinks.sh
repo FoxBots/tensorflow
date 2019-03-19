@@ -33,16 +33,16 @@ link_includes "/usr/include/cu*"
 lib_dir="$target_dir/lib64"
 if [ ! -e $lib_dir ]; then
   mkdir -p $lib_dir
-  ln -s /usr/lib/x86_64-linux-gnu/libcublas.so.10.0 $target_dir/libcublas.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libcudart.so.10.0 $target_dir/libcudart.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libcudart_static.a $target_dir/libcudart_static.a
-  ln -s /usr/lib/x86_64-linux-gnu/libcufft.so.10.0 $target_dir/libcufft.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libcupti.so.10.0 $target_dir/libcupti.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libcurand.so.10.0 $target_dir/libcurand.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libcusolver.so.10.0 $target_dir/libcusolver.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libnppc.so.10.0 $target_dir/libnppc.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/libnppial.so.10.0 $target_dir/libnppial.so.10.0
-  ln -s /usr/lib/x86_64-linux-gnu/stubs $target_dir/stubs
+  ln -s /usr/lib/x86_64-linux-gnu/libcublas.so.10.0 $lib_dir/libcublas.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libcudart.so.10.0 $lib_dir/libcudart.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libcudart_static.a $lib_dir/libcudart_static.a
+  ln -s /usr/lib/x86_64-linux-gnu/libcufft.so.10.0 $lib_dir/libcufft.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libcupti.so.10.0 $lib_dir/libcupti.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libcurand.so.10.0 $lib_dir/libcurand.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libcusolver.so.10.0 $lib_dir/libcusolver.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libnppc.so.10.0 $lib_dir/libnppc.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/libnppial.so.10.0 $lib_dir/libnppial.so.10.0
+  ln -s /usr/lib/x86_64-linux-gnu/stubs $lib_dir/stubs
 fi
 
 #/nvvm
